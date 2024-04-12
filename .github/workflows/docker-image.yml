@@ -13,11 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - uses: docker/build-push-action@v4
       with:
-        files: " ./sampleapp/*"
+        file: ./sampleapp/Dockerfile
         push: false
         context: .
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag myimg:v1
+      run: docker build -t myimg:v1 .
