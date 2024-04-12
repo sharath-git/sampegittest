@@ -16,7 +16,7 @@ jobs:
 
     - uses: docker/build-push-action@v4
       with:
-        files: "-f ./sampleapp/."
+        files: " ./sampleapp/*"
         push: false
         context: .
     - name: Build the Docker image
