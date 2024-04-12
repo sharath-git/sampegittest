@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t myimg:v1 sampleapp/Dockerfile .
+      run: docker build -t myimg:v1 -f sampleapp/Dockerfile .
     - name: Run the container
       run: |
         docker run -d --name myapp -p 8081:80 myimg:v1
