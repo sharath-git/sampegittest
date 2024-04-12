@@ -15,7 +15,10 @@ jobs:
     - uses: actions/checkout@v3
       with:
         file: ./sampleapp/Dockerfile
-        push: false
-        context: .
     - name: Build the Docker image
       run: docker build -t myimg:v1 .
+    - name: Run the container
+      run: docker run -d --name myapp -p 8081:80 myimg:v1
+    - run: sleep 10  
+    - name: Test with curl
+      run: curl -l localhost:8081
